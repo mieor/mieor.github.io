@@ -4,7 +4,7 @@
 
 # theme = "blowfish" 
 # baseURL = "https://mieor.github.io/"
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
@@ -67,3 +67,4 @@ enableEmoji = true
       name = 'fragmentrefs'
       type = 'fragments'
       weight = 10
+hasCJKLanguage = true
