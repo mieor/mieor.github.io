@@ -5,7 +5,7 @@ weight = 1
 title = "mieorのBlog"
 
 [params]
-  displayName = "ZH-CN"
+  displayName = "简体中文"
   isoCode = "zh-cn"
   rtl = false
   dateFormat = "2006 年 1 月 2 日"
