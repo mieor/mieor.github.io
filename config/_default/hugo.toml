@@ -1,3 +1,4 @@
+theme = "blowfish"
 title = "mieor"
 baseURL = "https://mieor.github.io/"
 defaultContentLanguage = "zh-cn"
