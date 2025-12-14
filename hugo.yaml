@@ -9,6 +9,7 @@ hasCJKLanguage: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+enableGitInfo: false  # 减少构建警告
 
 # 输出配置（搜索功能必需）
 outputs:
@@ -16,6 +17,10 @@ outputs:
     - HTML
     - RSS
     - JSON
+
+# 分页配置（修正格式）
+pagination:
+  pagerSize: 10
 
 # 菜单配置
 menu:
@@ -40,6 +45,7 @@ menu:
       name: 搜索
       url: /search/
       weight: 5
+
 # 主题参数配置
 params:
   env: production
@@ -64,7 +70,7 @@ params:
   disableThemeToggle: false
   DateFormat: "2006-01-02"
   
-  # 启用个人资料模式 (已替换homeInfoParams)
+  # 启用个人资料模式
   profileMode:
     enabled: true
     title: "mieor's Blog"
@@ -77,11 +83,6 @@ params:
         url: "/archives/"
       - name: 标签云
         url: "/tags/"
-  
-  # 社交图标
-  socialIcons:
-    - name: github
-      url: "https://github.com/mieor"
 
   # 网站图标
   assets:
@@ -135,19 +136,3 @@ taxonomies:
   category: categories
   tag: tags
   series: series
-pagination:10
-
-# 在 hugo.yaml 中添加以下配置：
-params:
-  # ... 你原有的其他 params 配置 ...
-
-# 👇 添加这个新配置项：
-enableGitInfo: false  # 可选，但可以减少构建警告
-# 核心：指示 Hugo 生成 .nojekyll 文件
-disableKinds: []
-# 注意：旧版 Hugo 可能需要使用 'disableAliases' 等配置，但生成 .nojekyll 通常靠主题或命令。
-
-# 更可靠的方法是使用 Hugo 的 build 配置：
-build:
-  writeStats: false
-# 但最直接的是在 GitHub Actions 工作流中创建。
