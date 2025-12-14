@@ -1,3 +1,139 @@
-baseURL: https://example.org/
-languageCode: en-us
-title: My New Hugo Site
+baseURL: "https://mieor.github.io"
+title: "mieor's Blog"
+languageCode: "zh-CN"
+defaultContentLanguage: "zh"
+theme: "PaperMod"
+enableRobotsTXT: true
+enableEmoji: true
+hasCJKLanguage: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+# 输出配置（搜索功能必需）
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# 菜单配置
+menu:
+  main:
+    - identifier: home
+      name: 首页
+      url: /
+      weight: 1
+    - identifier: archives
+      name: 归档
+      url: /archives/
+      weight: 2
+    - identifier: categories
+      name: 分类
+      url: /categories/
+      weight: 3
+    - identifier: tags
+      name: 标签
+      url: /tags/
+      weight: 4
+    - identifier: search
+      name: 搜索
+      url: /search/
+      weight: 5
+# 主题参数配置
+params:
+  env: production
+  title: "mieor's Blog"
+  description: "这是一个使用Hugo和PaperMod主题搭建的博客"
+  author: "mieor"
+  keywords: ["博客", "技术", "分享"]
+  
+  # 显示功能开关
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowToc: true
+  TocOpen: false
+  ShowLastMod: true
+  
+  # 主题与外观
+  defaultTheme: auto
+  disableThemeToggle: false
+  DateFormat: "2006-01-02"
+  
+  # 启用个人资料模式 (已替换homeInfoParams)
+  profileMode:
+    enabled: true
+    title: "mieor's Blog"
+    subtitle: "生命之树常青"
+    imageUrl: "img/avatar.png"
+    imageWidth: 120
+    imageHeight: 120
+    buttons:
+      - name: 文章归档
+        url: "/archives/"
+      - name: 标签云
+        url: "/tags/"
+  
+  # 社交图标
+  socialIcons:
+    - name: github
+      url: "https://github.com/mieor"
+
+  # 网站图标
+  assets:
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
+  
+  # 左上角标签
+  label:
+    text: "mieor's Blog"
+    icon: "/icon.png"
+    iconHeight: 35
+  
+  # 封面图片配置
+  cover:
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: false
+  
+  # 搜索配置
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+  
+  # 评论系统
+  comments: false
+  
+  # 编辑文章链接（GitHub）
+  editPost:
+    URL: "https://github.com/yourusername/your-repo/edit/main/content"
+    Text: "编辑此页"
+    appendFilePath: true
+
+# 代码高亮配置
+markup:
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    style: monokai
+
+# 分类法配置
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+pagination:
+ pagerSize: 10 
