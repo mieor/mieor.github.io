@@ -2,29 +2,40 @@ name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: ["main"]  # 当向main分支推送代码时触发
+    branches: ["main"]  # 当推送到main分支时触发
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      # 1. 检出代码
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive  # 重要：确保主题子模块被拉取
+          submodules: recursive  # 重要：拉取主题子模块
           fetch-depth: 0
 
+      # 2. 设置 Hugo
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3  # 使用 v3 版本
         with:
-          hugo-version: 'latest'  # 使用最新版Hugo
-          extended: true  # 推荐使用扩展版，兼容性更好
+          hugo-version: '0.152.2'  # 使用你本地的相同版本
+          extended: true  # 使用扩展版（必须）
 
+      # 3. 构建网站
       - name: Build
-        run: hugo --minify  # 构建并压缩输出文件
+        run: hugo --minify
 
+      # 4. 创建 .nojekyll 文件
+      - name: Create .nojekyll
+        run: |
+          touch ./public/.nojekyll
+          ls -la ./public/  # 列出文件，用于调试
+
+      # 5. 部署到 GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public  # 部署Hugo生成的public目录
+          publish_dir: ./public
+          publish_branch: gh-pages  # 明确指定部署到 gh-pages 分支
