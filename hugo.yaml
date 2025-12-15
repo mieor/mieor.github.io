@@ -106,7 +106,7 @@ params:
     keys: ["title", "permalink", "summary", "content"]
   
   # 评论系统
-  comments: false
+  comments: true
   
   # 编辑文章链接（GitHub）
   editPost:
