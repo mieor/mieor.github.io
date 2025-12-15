@@ -37,14 +37,10 @@ menu:
       name: 分类
       url: /categories/
       weight: 3
-    - identifier: tags
-      name: 标签
-      url: /tags/
-      weight: 4
     - identifier: search
       name: 搜索
       url: /search/
-      weight: 5
+      weight: 4
 
 # 主题参数配置
 params:
@@ -78,12 +74,7 @@ params:
     imageUrl: "img/avatar.png"
     imageWidth: 120
     imageHeight: 120
-    buttons:
-      - name: 文章归档
-        url: "/archives/"
-      - name: 标签云
-        url: "/tags/"
-
+  
   # 网站图标
   assets:
     favicon: "/favicon.ico"
@@ -122,6 +113,10 @@ params:
     URL: "https://github.com/yourusername/your-repo/edit/main/content"
     Text: "编辑此页"
     appendFilePath: true
+  
+  # 不蒜子Busuanzi流量统计
+  busuanzi:
+    enable: true
 
 # 代码高亮配置
 markup:
@@ -129,6 +124,7 @@ markup:
     noClasses: false
     codeFences: true
     guessSyntax: true
+    lineNos: false  # 可选：是否显示行号
     style: monokai
 
 # 分类法配置
